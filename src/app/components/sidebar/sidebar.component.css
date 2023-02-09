@@ -1,0 +1,51 @@
+mat-toolbar {
+    background: #002b5c;
+    color: white;
+}
+
+.menu-button {
+    margin-right: 10px;
+    margin-top: 8px;
+    margin-bottom: 8px;
+}
+
+mat-divider {
+    border-top-color: white;
+}
+
+mat-sidenav {
+    margin: 16px;
+    width: 200px;
+    border-right: none;
+    background: #002b5c;
+    color: white;
+    border-radius: 10px;
+    padding: 8px;
+    text-align: center;
+}
+
+.spacer {
+    flex: 1 1 auto;
+}
+
+.email{
+    font-size: smaller;
+}
+
+.content {
+    height: calc(100vh - 98px);
+    border-radius: 10px;
+    margin: 16px;
+    margin-left: 25px;
+
+    /* display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 2rem;
+    color: lightgray; */
+}
+
+mat-sidenav-container {
+    height: calc(100vh - 65px);
+}
