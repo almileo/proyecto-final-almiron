@@ -3,4 +3,6 @@ export interface Curso {
     fechaInicio: Date;
     fechaFin: Date;
     profesor: string;
+    comision: number;
+    esActivo: boolean;
 }

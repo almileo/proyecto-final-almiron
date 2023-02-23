@@ -1,0 +1,12 @@
+table {
+    width: 100%;
+}
+
+mat-icon {
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+mat-toolbar {
+    margin-bottom: 20px;
+}

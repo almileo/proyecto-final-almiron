@@ -1,7 +1,8 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Alumno } from 'src/app/interfaces/alumno';
+import { Alumno } from 'src/app/shared/interfaces/alumno';
+import { AlumnosService } from '../../services/alumnos.service';
 
 @Component({
   selector: 'app-alumnos-form',
@@ -17,12 +18,14 @@ export class AlumnosFormComponent implements OnInit {
   emailRegex: string = "^[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$";
 
   constructor(
+    private alumnosSvc: AlumnosService,
     public dialog: MatDialog,
     private fb: FormBuilder,
     @Inject(MAT_DIALOG_DATA) public data: Alumno
   ) {
+    console.log('data: ', this.data);
+    
     this.alumno = this.data;
-    console.log('alumno: ', this.alumno); 
    }
   
   async ngOnInit() {
@@ -34,6 +37,7 @@ export class AlumnosFormComponent implements OnInit {
 
   initForm(){
     this.alumnoForm = this.fb.group({
+      id: [null, [Validators.required]],
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
       email: ['', [Validators.required, Validators.pattern(this.emailRegex)]],
@@ -54,8 +58,14 @@ export class AlumnosFormComponent implements OnInit {
 
   guardar() {
     const alumno = this.alumnoForm.value;
-    console.log('alumno guardado: ', alumno);
-    this.dialog.closeAll();
+
+    if(this.data) {
+      this.alumnosSvc.editAlumno(alumno);
+      this.dialog.closeAll();
+    } else {
+      this.alumnosSvc.createAlumno(alumno);
+      this.dialog.closeAll();
+    }
   }
 
 

@@ -4,41 +4,33 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 //MODULOS
 import { AppRoutingModule } from './app-routing.module';
-import { MaterialModule } from './modules/material/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SharedModule } from './shared/shared.module';
+import { AlumnosModule } from './alumnos/alumnos.module';
+import { CursosModule } from './cursos/cursos.module';
 
 //COMPONENTES
 import { AppComponent } from './app.component';
-import { SidebarComponent } from './components/sidebar/sidebar.component';
-import { AlumnosListaComponent } from './components/alumnos/alumnos-lista/alumnos-lista.component';
-import { AlumnosFormComponent } from './components/alumnos/alumnos-form/alumnos-form.component';
-
-//PIPES
-import { NombreCompletoPipe } from 'src/app/pipes/nombre-completo.pipe';
-import { CumpleanosPipe } from './pipes/cumpleanos.pipe';
-import { EsActivoPipe } from './pipes/es-activo.pipe';
 
 //DIRECTIVES
-import { TitulosDirective } from './directives/titulos.directive';
+import { TitulosDirective } from './shared/directives/titulos.directive';
+import { SidebarComponent } from './core/sidebar/sidebar.component';
+import { MaterialModule } from './shared/material.module';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SidebarComponent,
-    AlumnosListaComponent,
-    AlumnosFormComponent,
-    NombreCompletoPipe,
-    CumpleanosPipe,
-    EsActivoPipe,
-    TitulosDirective
+    TitulosDirective,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,
+    AlumnosModule,
+    CursosModule,
+    SharedModule,
     AppRoutingModule,
-    BrowserAnimationsModule,
     MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

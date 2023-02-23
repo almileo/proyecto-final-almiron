@@ -8,22 +8,22 @@
 <mat-sidenav-container>
     <mat-sidenav class="mat-elevation-z8 side" opened mode="side">
         <mat-divider></mat-divider>
-        <button mat-button>
+        <button mat-button routerLink="/">
             <mat-icon class="menu-button">home</mat-icon>
             <span>Home</span>
         </button>
         <mat-divider></mat-divider>
-        <button mat-button>
+        <button mat-button routerLink="cursos/lista">
             <mat-icon class="menu-button">assignment</mat-icon>
             <span>Cursos</span>
         </button>
         <mat-divider></mat-divider>
-        <button mat-button>
+        <button mat-button routerLink="alumnos/lista">
             <mat-icon class="menu-button">people</mat-icon>
             <span>Alumnos</span>
         </button>
         <mat-divider></mat-divider>
-        <button mat-button>
+        <button mat-button routerLink="clases">
             <mat-icon class="menu-button">class</mat-icon>
             <span>Clases</span>
         </button>
@@ -31,8 +31,8 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <div class="content mat-elevation-z8">
-            <app-alumnos-lista></app-alumnos-lista>
-            <!-- <router-outlet></router-outlet> -->
+            <!-- <app-alumnos-lista></app-alumnos-lista> -->
+            <router-outlet></router-outlet>
         </div>
     </mat-sidenav-content>
 </mat-sidenav-container>
