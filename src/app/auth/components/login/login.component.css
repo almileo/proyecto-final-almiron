@@ -1,0 +1,24 @@
+.my-form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    height: 100%;
+}
+   
+.full-width {
+    width: 100%;
+}
+
+.my-card {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: auto;
+}

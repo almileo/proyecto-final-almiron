@@ -16,6 +16,14 @@ import { NotFoundComponent } from '../core/not-found/not-found.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule
+  ],
+  exports: [
+    CommonModule,
+    MaterialModule,
+    FormsModule,
+    ReactiveFormsModule,
+    HomeComponent, 
+    NotFoundComponent
   ]
 })
 export class SharedModule { }

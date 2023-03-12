@@ -1,43 +1,31 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { Curso } from 'src/app/shared/interfaces/curso';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CursosService {
 
-  cursos: Curso[] = [
-    { comision: 1 ,nombre: 'DeFi para todos', profesor: 'Juan', fechaInicio: new Date(2023,2,10), fechaFin: new Date(2023,2,15), esActivo: true }
-  ] 
-  cursos$: BehaviorSubject<any> = new BehaviorSubject(this.cursos);
+  constructor(
+    private  http: HttpClient
+  ) { }
 
-  constructor() { }
-
-  getCursos(): Observable<any> {
-    return this.cursos$.asObservable();
+  getCursos(): Observable<Curso[]> {
+    return this.http.get<Curso[]>(`${environment.apiURL}/cursos`);
   }
 
-  createCurso(curso: any): void {
-    this.cursos.push(curso);
-    this.cursos$.next(this.cursos);
+  createCurso(curso: Curso): Observable<Curso> {
+    return this.http.post<Curso>(`${environment.apiURL}/cursos`, curso);
   }
 
-  editCurso(curso: any): void {
-    let index = this.cursos.findIndex(a => a.comision === curso.comision);
-
-    if(index > -1){
-      this.cursos[index] = curso;
-      this.cursos$.next(this.cursos);
-    }
+  editCurso(curso: Curso): Observable<Curso> {
+    return this.http.put<Curso>(`${environment.apiURL}/cursos/${curso.id}`, curso);
   }
 
-  deleteCurso(curso: any): void {
-    let index = this.cursos.findIndex(a => a.comision === curso.comision);
-
-    if(index > -1){
-      this.cursos.splice(index, 1);
-      this.cursos$.next(this.cursos);
-    }
+  deleteCurso(cursoId: string): Observable<Curso> {
+    return this.http.delete<Curso>(`${environment.apiURL}/cursos/${cursoId}`);
   }
 }

@@ -5,34 +5,34 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //MODULOS
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from './shared/shared.module';
-import { AlumnosModule } from './alumnos/alumnos.module';
-import { CursosModule } from './cursos/cursos.module';
+import { CoreModule } from './core/core.module';
 
 //COMPONENTES
 import { AppComponent } from './app.component';
+import { SidebarComponent } from './core/sidebar/sidebar.component';
+import { LoginComponent } from './auth/components/login/login.component';
 
 //DIRECTIVES
 import { TitulosDirective } from './shared/directives/titulos.directive';
-import { SidebarComponent } from './core/sidebar/sidebar.component';
-import { MaterialModule } from './shared/material.module';
+
+import { CursosService } from './cursos/services/cursos.service';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     TitulosDirective,
-    SidebarComponent
+    SidebarComponent,
+    LoginComponent
   ],
   imports: [
-    BrowserModule,
-    AlumnosModule,
-    CursosModule,
-    SharedModule,
     AppRoutingModule,
-    MaterialModule,
+    BrowserModule,
     BrowserAnimationsModule,
+    CoreModule,
+    SharedModule,
   ],
-  providers: [],
+  providers: [CursosService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

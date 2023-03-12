@@ -2,6 +2,8 @@
     <mat-toolbar-row>
         <button mat-button (click)="sidenav.toggle()"><mat-icon>menu</mat-icon></button>
         <h4>Criptolearn</h4>
+        <div class="spacer"></div>
+        <span routerLink="auth/login">LOGIN</span>
     </mat-toolbar-row>
 </mat-toolbar>
 
@@ -31,7 +33,6 @@
     </mat-sidenav>
     <mat-sidenav-content>
         <div class="content mat-elevation-z8">
-            <!-- <app-alumnos-lista></app-alumnos-lista> -->
             <router-outlet></router-outlet>
         </div>
     </mat-sidenav-content>

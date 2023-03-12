@@ -1,0 +1,29 @@
+<div class="container">
+    <mat-card class="my-card">
+       <mat-card-content>
+          <form class="my-form" [formGroup]="formLogin">
+             <mat-form-field class="full-width">
+                <mat-label>Email</mat-label>
+                <input  matInput  placeholder="Email" formControlName="email">
+             </mat-form-field>
+             <mat-form-field class="full-width">
+                <mat-label>Password</mat-label>
+                <input  matInput [type]="inputType" placeholder="Password" formControlName="password">
+              </mat-form-field>
+
+              <mat-slide-toggle formControlName="esAdmin">Es Admin</mat-slide-toggle>
+              <mat-icon (click)="showPassword()" *ngIf="inputType === 'password'">visibility</mat-icon>
+              <mat-icon (click)="hidePassword()" *ngIf="inputType === 'text'">visibility_off</mat-icon>
+          </form>
+       </mat-card-content>
+       <mat-card-actions>
+          <button mat-raised-button (click)="login()" color="primary">Login</button>
+       </mat-card-actions>
+       <div class="redirectToLogin">
+        <span>Create an account<span class="redirect" routerLink="/register"><button mat-button>Register</button></span></span>
+      </div>
+      <div class="redirectToLogin">
+        <span>Do you forgot you password?<span class="redirect" routerLink="/password-reset"><button mat-button>Reset Password</button></span></span>
+      </div>
+    </mat-card>
+ </div>

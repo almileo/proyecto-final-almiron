@@ -4,23 +4,22 @@ import { CursoFormComponent } from './components/curso-form/curso-form.component
 import { CursoListaComponent } from './components/curso-lista/curso-lista.component';
 import { CursosRoutingModule } from './cursos-routing.module';
 import { SharedModule } from '../shared/shared.module';
-import { MaterialModule } from '../shared/material.module';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CursosService } from './services/cursos.service';
+import { CoreModule } from '../core/core.module';
 
 
 
 @NgModule({
   declarations: [
     CursoFormComponent,
-    CursoListaComponent
+    CursoListaComponent,
   ],
   imports: [
     CommonModule,
     CursosRoutingModule,
     SharedModule,
-    MaterialModule,
-    FormsModule,
-    ReactiveFormsModule,
-  ]
+    CoreModule
+  ],
+  providers: [CursosService]
 })
 export class CursosModule { }
